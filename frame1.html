@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame 1</title>
+</head>
+<body>
+  <div>Frame 1</div>
+    <textarea id="textArea1" rows="4" cols="50"></textarea>
+    <button onclick="copiarTextoParaFrame2()">Copiar para Frame 2</button>
+
+    <script>
+        function copiarTextoParaFrame2() {
+            var textoFrame1 = document.getElementById('textArea1').value;
+            window.parent.frames['frame2'].document.getElementById('textArea2').value = textoFrame1;
+            console.log(textoFrame1)
+        }
+
+        function receberTextoDoFrame2(textoFrame2) {
+            window.parent.frames['frame1'].document.getElementById('textArea1').value = textoFrame2;
+        }
+    </script>
+
+</body>
+</html>
